@@ -35,6 +35,8 @@ dependencies:
   bloc:
   flutter_bloc:
   image_picker:
+  hexcolor:
+  cached_network_image:
 
 
   # The following adds the Cupertino Icons font to your application.

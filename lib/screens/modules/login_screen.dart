@@ -8,7 +8,7 @@ import '../../core/managers/values.dart';
 import '../../core/network/local/cache_helper.dart';
 import '../widgets/botton.dart';
 import '../widgets/text_form.dart';
-import 'home_screen.dart';
+import 'product_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   var emailController = TextEditingController();
@@ -40,7 +40,7 @@ class LoginScreen extends StatelessWidget {
               token = state.userModel.user!.token!;
               navigateAndFinishThisScreen(
                 context,
-                const HomeScreen(),
+                const ProductScreen(),
               );
             });
           } else {

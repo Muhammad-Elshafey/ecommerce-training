@@ -11,7 +11,11 @@ Widget buildProductItem(Product product, context) => InkWell(
         padding: const EdgeInsets.all(8.0),
         child: GestureDetector(
           onTap: () {
-            navigateToNextScreen(context, const ProductDetailsScreen());
+            navigateToNextScreen(
+                context,
+                ProductDetailsScreen(
+                  product: product,
+                ));
           },
           child: Container(
               width: 180,
@@ -53,13 +57,14 @@ Widget buildProductItem(Product product, context) => InkWell(
                                 ),
                                 height: 125,
                                 child: Padding(
-                                  padding:
-                                      const EdgeInsets.only(right: 30, left: 10),
+                                  padding: const EdgeInsets.only(
+                                      right: 30, left: 10),
                                   child: CachedNetworkImage(
                                       imageUrl: product.image!,
                                       imageBuilder: (context, imageProvider) =>
                                           Image(image: imageProvider),
-                                      placeholder: (context, url) => const Center(
+                                      placeholder: (context, url) =>
+                                          const Center(
                                             child: CircularProgressIndicator(
                                               color: Colors.black,
                                             ),
@@ -94,7 +99,8 @@ Widget buildProductItem(Product product, context) => InkWell(
                           Expanded(
                             flex: 2,
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 10.0, top: 10),
+                              padding:
+                                  const EdgeInsets.only(left: 10.0, top: 10),
                               child: Row(
                                 children: [
                                   Expanded(
@@ -116,12 +122,14 @@ Widget buildProductItem(Product product, context) => InkWell(
                                               color: HexColor('#C70000'),
                                               borderRadius:
                                                   const BorderRadius.horizontal(
-                                                      left: Radius.circular(20))),
+                                                      left:
+                                                          Radius.circular(20))),
                                           child: const Center(
                                               child: Text(
                                             '10% Off',
                                             style: TextStyle(
-                                                color: Colors.white, fontSize: 8),
+                                                color: Colors.white,
+                                                fontSize: 8),
                                           ))),
                                     ),
                                 ],
@@ -152,20 +160,21 @@ Widget buildProductItem(Product product, context) => InkWell(
                                 ),
                                 const Spacer(),
                                 Container(
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                        color: HexColor('#07094D'),
-                                        borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(20),
-                                            bottomRight: Radius.circular(20))),
-                                    child: MaterialButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        'Buy'.toUpperCase(),
-                                        style:
-                                            const TextStyle(color: Colors.white),
-                                      ),
-                                    ))
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      color: HexColor('#07094D'),
+                                      borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          bottomRight: Radius.circular(20))),
+                                  child: MaterialButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Buy'.toUpperCase(),
+                                      style:
+                                          const TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           )

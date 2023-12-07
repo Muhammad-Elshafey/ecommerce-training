@@ -33,70 +33,129 @@ class ProductDetailsScreen extends StatelessWidget {
             ),
             body: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image(image: NetworkImage(product!.image!)),
-                  const SizedBox(
-                    height: 60.0,
-                  ),
-                  Text(
-                    product!.name!,
-                    style: const TextStyle(
-                      fontSize: 32.0,
-                      fontWeight: FontWeight.w600,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image(
+                      image: NetworkImage(
+                        product!.image!,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 6.0,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
+                    const SizedBox(
+                      height: 60.0,
+                    ),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Expanded(
+                          child: Text(
+                            product!.name!,
+                            style: const TextStyle(
+                              fontSize: 32.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
                         Text(
-                          product!.company!,
+                          product!.status!,
                           style: const TextStyle(
                               fontSize: 16.0, color: Colors.grey),
                         ),
-                        Row(
-                          children: [
-                            const Text(
-                              '\$',
-                              style:
-                                  TextStyle(fontSize: 16.0, color: Colors.red),
-                            ),
-                            Text(
-                              product!.price!.toString(),
-                              style: const TextStyle(
-                                  fontSize: 16.0, color: Colors.red),
-                            ),
-                          ],
-                        ),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 32.0,
-                  ),
-                  Container(
-                    height: 50,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: HexColor('#07094D'),
-                      borderRadius: BorderRadius.circular(20.0),
+                    const SizedBox(
+                      height: 6.0,
                     ),
-                    child: MaterialButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Buy'.toUpperCase(),
-                        style: const TextStyle(color: Colors.white),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            product!.company!,
+                            style: const TextStyle(
+                                fontSize: 16.0, color: Colors.grey),
+                          ),
+                          Row(
+                            children: [
+                              const Text(
+                                '\$',
+                                style: TextStyle(
+                                    fontSize: 16.0, color: Colors.red),
+                              ),
+                              Text(
+                                product!.price!.toString(),
+                                style: const TextStyle(
+                                    fontSize: 16.0, color: Colors.red),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            'In Stock : ',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Text(
+                            product!.countInStock!.toString(),
+                            style: const TextStyle(
+                                fontSize: 16.0, color: Colors.red),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 22.0,
+                    ),
+                    Container(
+                      height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: HexColor('#07094D'),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: MaterialButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Buy'.toUpperCase(),
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 32.0,
+                    ),
+                    const Text(
+                      'Description',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 14.0,
+                    ),
+                    Text(
+                      product!.description!,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
